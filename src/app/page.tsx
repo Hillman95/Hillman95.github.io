@@ -25,13 +25,20 @@ const PlayIcon = () => (
 
 type ProjectLink = { label: string; href: string };
 type StoreLinks = { appStore: string; googlePlay: string };
+type ProjectSection = { title: string; text: string };
+type ArchitectureGroup = { title: string; text: string };
+type ProjectArchitecture = {
+  rationale: string;
+  groups: ArchitectureGroup[];
+};
 
 type Project = {
   title: string;
   subtitle: string;
   stack: string[];
   className: string;
-  sections?: { title: string; text: string }[];
+  sections?: ProjectSection[];
+  architecture?: ProjectArchitecture;
   links: ProjectLink[];
   storeLinks?: StoreLinks;
   visual: React.ReactNode;
@@ -82,14 +89,36 @@ const projects: Project[] = [
     className: "project-lariba",
     sections: [
       {
-        title: "О продукте",
-        text: "Flutter-приложение исламской рассрочки: каталог, калькулятор, заявки, JWT-авторизация.",
+        title: "Задача",
+        text: "Запустить понятное Flutter-приложение рассрочки: от каталога и калькулятора до заявки и авторизации.",
       },
       {
-        title: "Архитектура",
-        text: "Clean Architecture, scoped DI (GetIt), ValueNotifier, go_router, Dio.",
+        title: "Моя роль",
+        text: "Ведущий mobile-инженер: заложил Flutter-основу, архитектуру приложения и процесс доставки релизов.",
+      },
+      {
+        title: "Ключевые решения",
+        text: "Анонимный вход в каталог и калькулятор, управляемая авторизация, deep links, push и единый слой аналитики.",
       },
     ],
+    architecture: {
+      rationale:
+        "Решения выбраны ради точечных обновлений UI, явного жизненного цикла зависимостей и короткого пути пользователя до авторизации.",
+      groups: [
+        {
+          title: "Состояние и зависимости",
+          text: "ValueNotifier-контроллеры с управляемым lifecycle и scoped DI через GetIt.",
+        },
+        {
+          title: "Данные и авторизация",
+          text: "Repository/Dio, JWT и single-flight refresh без параллельного обновления токена.",
+        },
+        {
+          title: "Путь и доставка",
+          text: "Anonymous-first каталог и калькулятор, deep links, push, analytics wrappers, CI и Fastlane.",
+        },
+      ],
+    },
     links: [],
     storeLinks: {
       appStore:
@@ -102,18 +131,44 @@ const projects: Project[] = [
   {
     title: "Dirham",
     subtitle: "Операционная система исламской рассрочки",
-    stack: ["NestJS", "Prisma", "React", "Flutter", "Docker"],
+    stack: ["NestJS", "Prisma", "PostgreSQL", "React", "Flutter", "Docker"],
     className: "project-dirham",
     sections: [
       {
-        title: "О продукте",
-        text: "Управление заявками, платежами, кассами и ролями пользователей.",
+        title: "Задача",
+        text: "Перевести процессы из legacy AppSheet в надёжную систему для заявок, платежей, касс и ролей.",
       },
       {
         title: "Моя роль",
-        text: "Разрабатывал в команде: NestJS + Prisma API, React-панель и Flutter-клиент.",
+        text: "Ведущий full-stack/product-инженер: спроектировал NestJS/PostgreSQL API и React-панель, участвовал в развитии Flutter.",
+      },
+      {
+        title: "Ключевые решения",
+        text: "Tenant-изоляция, fail-closed доступ, транзакционные платежи, идемпотентность и обратные операции вместо удаления.",
       },
     ],
+    architecture: {
+      rationale:
+        "Архитектура предотвращает дубли платежей, устаревшие балансы и доступ к данным другой компании.",
+      groups: [
+        {
+          title: "Контур данных",
+          text: "NestJS/PostgreSQL API и multi-tenant модель с обязательным companyId.",
+        },
+        {
+          title: "Доступ",
+          text: "Роли и capabilities проверяются fail-closed на каждом защищённом сценарии.",
+        },
+        {
+          title: "Финансы",
+          text: "Serializable-транзакции, row locks и retries; idempotency для команд, reversals вместо удаления.",
+        },
+        {
+          title: "Интерфейсы",
+          text: "SQL live views, TanStack Query в React и явные зависимости во Flutter.",
+        },
+      ],
+    },
     links: [],
     visual: (
       <div className="dirham-card" aria-hidden="true">
@@ -169,19 +224,41 @@ const projects: Project[] = [
   },
   {
     title: "WeCompete",
-    subtitle: "Сервис для спортивных мероприятий",
+    subtitle: "Полный цикл турниров по единоборствам",
     stack: ["Flutter", "Go", "React", "WebSocket", "Firebase"],
     className: "project-wecompete",
     sections: [
       {
-        title: "О продукте",
-        text: "Удобный сервис для турниров: регистрации, сетки, расписание и live-скоринг.",
+        title: "Задача",
+        text: "Спроектировать и запустить удобную платформу полного цикла: регистрация, сетки, расписание и live-скоринг.",
       },
       {
-        title: "Платформа",
-        text: "Flutter-клиент, Go API, React-панель, WebSocket, push и Live Activities.",
+        title: "Моя роль",
+        text: "Продуктовый архитектор и основной инженер mobile, backend и admin-контуров; развитие продукта — вместе с командой.",
+      },
+      {
+        title: "Ключевые решения",
+        text: "Сервер как источник истины, детерминированные сетки, live-обновления со сверкой состояния и безопасные операционные сценарии.",
       },
     ],
+    architecture: {
+      rationale:
+        "Прагматичный модульный подход ускоряет развитие продукта, а транзакции, детерминизм и сверка состояния сохраняют корректность турнира в live-режиме.",
+      groups: [
+        {
+          title: "Mobile",
+          text: "Flutter BLoC и repositories; WebSocket patches плюс REST reconciliation; виджеты, Live Activities и push.",
+        },
+        {
+          title: "Backend",
+          text: "Модульный монолит Go/Gin, PostgreSQL/pgx, транзакционная генерация сеток и детерминированное продвижение; расписание с timezone и live-сдвигами, server-authoritative clock, FCM/APNs, YooKassa и S3.",
+        },
+        {
+          title: "Admin",
+          text: "React/TypeScript и TanStack Query; role/hostname route policies, операционные safeguards, экраны судьи и зрителя.",
+        },
+      ],
+    },
     links: [{ label: "Сайт", href: "https://wecompete.ru/" }],
     visual: (
       <div className="activity-card" aria-hidden="true">
@@ -246,8 +323,8 @@ export default function Home() {
           </h1>
           <div className="hero-bottom reveal reveal-delay-2">
             <p>
-              Привет, я <strong>Аднан Байбатыров</strong> — ведущий инженер,
-              разработчик мобильных приложений. Более 7 лет создаю Flutter,
+              Привет, я <strong>Аднан</strong> — ведущий инженер, разработчик
+              мобильных приложений. Более 8 лет создаю Flutter,
               Android и iOS-продукты, а также backend и web-часть сервисов.
             </p>
             <a className="circle-link" href="#work" aria-label="Смотреть работы">
@@ -277,12 +354,34 @@ export default function Home() {
                   {project.sections ? (
                     <div className="project-sections">
                       {project.sections.map((section) => (
-                        <section key={section.title}>
+                        <div key={section.title}>
                           <h4>{section.title}</h4>
                           <p>{section.text}</p>
-                        </section>
+                        </div>
                       ))}
                     </div>
+                  ) : null}
+                  {project.architecture ? (
+                    <details className="project-architecture">
+                      <summary
+                        aria-label={`Архитектура и обоснование — ${project.title}`}
+                      >
+                        Архитектура и обоснование
+                      </summary>
+                      <div className="architecture-content">
+                        <p className="architecture-rationale">
+                          {project.architecture.rationale}
+                        </p>
+                        <div className="architecture-grid">
+                          {project.architecture.groups.map((group) => (
+                            <div key={group.title}>
+                              <h4>{group.title}</h4>
+                              <p>{group.text}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </details>
                   ) : null}
                   {project.storeLinks ? (
                     <div className="store-cta-row">
@@ -344,7 +443,7 @@ export default function Home() {
           <div className="section-heading">
             <p>Опыт</p>
             <h2>
-              7+ лет в мобильной
+              8+ лет в мобильной
               <br />
               разработке и <em>не только</em>.
             </h2>
@@ -466,7 +565,7 @@ export default function Home() {
       </main>
 
       <footer className="site-footer section-shell">
-        <p>© {new Date().getFullYear()} Аднан Байбатыров</p>
+        <p>© {new Date().getFullYear()} Аднан</p>
         <a href="#top">Наверх ↑</a>
       </footer>
     </>

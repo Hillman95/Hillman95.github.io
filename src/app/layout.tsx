@@ -15,9 +15,9 @@ const unbounded = Unbounded({
 });
 
 export const metadata: Metadata = {
-  title: "Аднан Байбатыров — Mobile Developer",
+  title: "Аднан — Mobile & Product Engineer",
   description:
-    "Портфолио mobile-разработчика: Flutter, Android, iOS, backend и web. ЦПУ билайн, ЛяРиба, Dirham, Tooba, WeCompete.",
+    "Портфолио Аднана: Flutter, Android, iOS, backend и web. Архитектура и продуктовые решения для ЦПУ билайн, ЛяРиба, Dirham, Tooba и WeCompete.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
