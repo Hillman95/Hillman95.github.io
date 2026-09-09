@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 const shots = [
-  { src: "/projects/lariba/ios-1.jpg", alt: "ЛяРиба — документы" },
-  { src: "/projects/lariba/ios-2.jpg", alt: "ЛяРиба — каталог" },
-  { src: "/projects/lariba/ios-3.jpg", alt: "ЛяРиба — калькулятор" },
-  { src: "/projects/lariba/ios-4.jpg", alt: "ЛяРиба — заявки" },
+  { src: "/projects/lariba/ios-1.webp", alt: "ЛяРиба — документы" },
+  { src: "/projects/lariba/ios-2.webp", alt: "ЛяРиба — каталог" },
+  { src: "/projects/lariba/ios-3.webp", alt: "ЛяРиба — калькулятор" },
+  { src: "/projects/lariba/ios-4.webp", alt: "ЛяРиба — заявки" },
   { src: "/projects/lariba/android-1.webp", alt: "ЛяРиба — оформление" },
 ] as const;
 

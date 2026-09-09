@@ -72,14 +72,26 @@ const projects: Project[] = [
       { label: "О проекте", href: "https://cpu.beeline.ru/app" },
     ],
     visual: (
-      <Image
-        src="/projects/cpu/hero.jpg"
-        alt="ЦПУ — цифровая платформа управления"
-        width={1440}
-        height={900}
-        className="cover-image"
-        priority
-      />
+      <div className="cpu-showcase" aria-hidden="true">
+        <div className="cpu-art">
+          <Image
+            src="/projects/cpu/hero.webp"
+            alt=""
+            fill
+            sizes="(max-width: 900px) 100vw, 340px"
+            priority
+          />
+        </div>
+        <div className="cpu-showcase-copy">
+          <span>ЦПУ · билайн</span>
+          <strong>Управление офисами в одном продукте</strong>
+          <div>
+            <small>Mobile + Web</small>
+            <small>Analytics</small>
+            <small>CI/CD</small>
+          </div>
+        </div>
+      </div>
     ),
   },
   {
@@ -495,9 +507,9 @@ export default function Home() {
           </div>
           <div className="about-grid">
             <h2>
-              Mobile — основной
+              От идеи и архитектуры
               <br />
-              профиль. <em>Продукт</em> — фокус.
+              до готового <em>продукта</em>.
             </h2>
             <div className="about-copy">
               <p>
