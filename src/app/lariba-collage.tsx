@@ -37,7 +37,7 @@ export function LaribaCollage({ locale }: { locale: Locale }) {
   const localized = copy[locale];
 
   return (
-    <div className="lariba-collage" aria-label={localized.label}>
+    <div className="lariba-collage" role="group" aria-label={localized.label}>
       {sources.map((src, index) => (
         <figure
           key={src}

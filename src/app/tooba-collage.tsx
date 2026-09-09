@@ -25,7 +25,7 @@ export function ToobaCollage({ locale }: { locale: Locale }) {
   const localized = copy[locale];
 
   return (
-    <div className="tooba-collage" aria-label={localized.label}>
+    <div className="tooba-collage" role="group" aria-label={localized.label}>
       {sources.map((src, index) => (
         <figure
           key={src}
