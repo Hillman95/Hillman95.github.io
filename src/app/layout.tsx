@@ -15,17 +15,25 @@ const unbounded = Unbounded({
 });
 
 export const metadata: Metadata = {
-  title: "Аднан — Mobile & Product Engineer",
+  title: "Adnan — Mobile & Product Engineer",
   description:
-    "Портфолио Аднана: Flutter, Android, iOS, backend и web. Архитектура и продуктовые решения для ЦПУ билайн, ЛяРиба, Dirham, Tooba и WeCompete.",
+    "Портфолио Аднана: Flutter, Android, iOS, backend и web. Adnan's portfolio: product architecture and engineering.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ru"
+      suppressHydrationWarning
       className={`${ibmPlexSans.variable} ${unbounded.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var r=document.documentElement;var t=localStorage.getItem("portfolio-theme");var d=t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.classList.toggle("dark",d);r.style.colorScheme=d?"dark":"light";var l=localStorage.getItem("portfolio-locale");if(l==="ru"||l==="en")r.lang=l}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
