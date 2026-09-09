@@ -395,8 +395,31 @@ export default function Home() {
                       </div>
                     </details>
                   ) : null}
+                  <div className="project-footer">
+                    <div className="tags">
+                      {project.stack.map((item) => (
+                        <span key={item}>{item}</span>
+                      ))}
+                    </div>
+                    {project.links.length > 0 ? (
+                      <div className="project-links">
+                        {project.links.map((link) => (
+                          <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            key={link.label}
+                          >
+                            {link.label} <ArrowUpRight small />
+                          </a>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+                <div className="project-visual">
                   {project.storeLinks ? (
-                    <div className="store-cta-row">
+                    <div className="visual-store-ctas">
                       <a
                         className="store-cta"
                         href={project.storeLinks.appStore}
@@ -423,29 +446,8 @@ export default function Home() {
                       </a>
                     </div>
                   ) : null}
-                  <div className="project-footer">
-                    <div className="tags">
-                      {project.stack.map((item) => (
-                        <span key={item}>{item}</span>
-                      ))}
-                    </div>
-                    {project.links.length > 0 ? (
-                      <div className="project-links">
-                        {project.links.map((link) => (
-                          <a
-                            href={link.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            key={link.label}
-                          >
-                            {link.label} <ArrowUpRight small />
-                          </a>
-                        ))}
-                      </div>
-                    ) : null}
-                  </div>
+                  {project.visual}
                 </div>
-                <div className="project-visual">{project.visual}</div>
               </article>
             ))}
           </div>

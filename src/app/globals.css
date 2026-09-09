@@ -526,10 +526,16 @@ em {
   fill: currentColor;
 }
 
-.store-cta-row {
+.visual-store-ctas {
+  position: absolute;
+  z-index: 20;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
+  white-space: nowrap;
 }
 
 .store-cta {
@@ -1296,10 +1302,6 @@ em {
 
   .project-copy h3 {
     font-size: 20px;
-  }
-
-  .store-cta {
-    width: 100%;
   }
 
   .ai-callout {
