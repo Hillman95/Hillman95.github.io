@@ -1354,6 +1354,21 @@ em {
 
   .cpu-showcase {
     min-height: 0;
+    padding: 14px;
+    grid-template-rows: minmax(200px, 1fr) auto;
+  }
+
+  .project-cpu .project-visual {
+    height: 420px;
+  }
+
+  .cpu-showcase-copy {
+    padding: 14px;
+  }
+
+  .cpu-showcase-copy > strong {
+    max-width: none;
+    font-size: 18px;
   }
 
   .project-footer,
