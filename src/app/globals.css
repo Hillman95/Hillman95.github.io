@@ -364,8 +364,8 @@ em {
 
 .cpu-art img {
   object-fit: cover;
-  object-position: 78% center;
-  transform: scale(1.7);
+  object-position: center;
+  transform: scale(1.03);
 }
 
 .cpu-showcase-copy {
