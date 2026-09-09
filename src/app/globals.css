@@ -36,7 +36,6 @@ body {
     linear-gradient(180deg, #f7f9fc 0%, var(--paper) 50%, #e8edf5 100%);
   color: var(--ink);
   font-family: var(--font-body), sans-serif;
-  background-attachment: fixed;
 }
 
 a {
