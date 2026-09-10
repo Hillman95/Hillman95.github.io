@@ -106,7 +106,7 @@ const copy = {
         architecture: {
           rationale: "Решения выбраны ради точечных обновлений UI, явного жизненного цикла зависимостей и короткого пути пользователя до авторизации.",
           groups: [
-            { title: "Состояние и зависимости", text: "ValueNotifier-контроллеры с управляемым lifecycle и scoped DI через GetIt." },
+            { title: "Состояние и зависимости", text: "Контроллеры предоставляют состояние через ValueListenable; зависимости имеют управляемый lifecycle и scoped DI через GetIt." },
             { title: "Данные и авторизация", text: "Repository/Dio, JWT и single-flight refresh без параллельного обновления токена." },
             { title: "Путь и доставка", text: "Anonymous-first каталог и калькулятор, deep links, push, analytics wrappers, CI и Fastlane." },
           ],
@@ -247,7 +247,7 @@ const copy = {
         architecture: {
           rationale: "The choices prioritize targeted UI updates, explicit dependency lifecycles, and a short user path to authentication.",
           groups: [
-            { title: "State and dependencies", text: "ValueNotifier controllers with managed lifecycle and scoped DI through GetIt." },
+            { title: "State and dependencies", text: "Controllers expose state through ValueListenable, with managed dependency lifecycles and scoped DI through GetIt." },
             { title: "Data and authentication", text: "Repository/Dio, JWT, and single-flight refresh without parallel token updates." },
             { title: "Journey and delivery", text: "Anonymous-first catalog and calculator, deep links, push, analytics wrappers, CI, and Fastlane." },
           ],
@@ -338,7 +338,7 @@ const copy = {
 
 const projectVisuals = {
   cpu: ["Flutter", "Dart", "Kotlin", "Swift", "JavaScript", "REST", "CI/CD"],
-  lariba: ["Flutter", "ValueNotifier", "GetIt", "go_router", "Dio"],
+  lariba: ["Flutter", "ValueListenable", "GetIt", "go_router", "Dio"],
   dirham: ["NestJS", "Prisma", "PostgreSQL", "React", "Flutter", "Docker"],
   tooba: ["Flutter", "Android", "Kotlin"],
   govza: ["Flutter", "Dart", "REST", "Maps", "Geolocation"],
