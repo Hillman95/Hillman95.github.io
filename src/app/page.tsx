@@ -99,7 +99,7 @@ const copy = {
         subtitle: "Мобильное приложение честной рассрочки",
         sections: [
           { title: "Задача", text: "Запустить понятное Flutter-приложение рассрочки: от каталога и калькулятора до заявки и авторизации." },
-          { title: "Моя роль", text: "В одиночку за 3 месяца разработал Flutter-клиент: заложил архитектуру приложения и настроил процесс доставки релизов." },
+          { title: "Моя роль", text: "За короткий срок разработано Flutter-приложение, настроена продуктовая аналитика для бизнеса и налажен процесс CI/CD." },
           { title: "Ключевые решения", text: "Анонимный вход в каталог и калькулятор, управляемая авторизация, deep links, push и единый слой аналитики." },
         ],
         architecture: {
@@ -231,7 +231,7 @@ const copy = {
         subtitle: "A fair installment-plan mobile app",
         sections: [
           { title: "Goal", text: "Launch an intuitive Flutter installment app, from catalog and calculator to applications and authentication." },
-          { title: "My role", text: "I built the Flutter client solo in 3 months, establishing the app architecture and release delivery process." },
+          { title: "My role", text: "The Flutter app was delivered in a short timeframe, with product analytics set up for the business and a reliable CI/CD process established." },
           { title: "Key decisions", text: "Anonymous access to the catalog and calculator, managed authentication, deep links, push notifications, and a unified analytics layer." },
         ],
         architecture: {
