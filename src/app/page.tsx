@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { GovzaCollage } from "./govza-collage";
 import { LaribaCollage } from "./lariba-collage";
 import { ToobaCollage } from "./tooba-collage";
+import { WecompeteCollage } from "./wecompete-collage";
 
 type Locale = "ru" | "en";
 type Theme = "light" | "dark";
@@ -363,6 +364,9 @@ const stores = {
     appStore: "https://apps.apple.com/us/app/tooba-help-easy/id1247468713",
     googlePlay: "https://play.google.com/store/apps/details?id=site.tooba.android",
   },
+  wecompete: {
+    appStore: "https://apps.apple.com/ru/app/competitor/id6808669322",
+  },
 } as const;
 
 function ProjectVisual({ id, locale }: { id: keyof typeof projectMeta; locale: Locale }) {
@@ -382,29 +386,17 @@ function ProjectVisual({ id, locale }: { id: keyof typeof projectMeta; locale: L
   if (id === "lariba") return <LaribaCollage locale={locale} />;
   if (id === "tooba") return <ToobaCollage locale={locale} />;
   if (id === "govza") return <GovzaCollage locale={locale} />;
-  if (id === "dirham") {
-    return (
-      <div className="dirham-card" aria-hidden="true">
-        <div className="dirham-head"><span>Д</span><small>{t.dirhamVisual.summary}</small></div>
-        <strong>2 480 000 ₽</strong>
-        <small>{t.dirhamVisual.turnover}</small>
-        <div className="dirham-stats">
-          <div><small>{t.dirhamVisual.payments}</small><b>184</b></div>
-          <div><small>{t.dirhamVisual.active}</small><b>62</b></div>
-          <div><small>{t.dirhamVisual.overdue}</small><b>3</b></div>
-        </div>
-      </div>
-    );
-  }
+  if (id === "wecompete") return <WecompeteCollage locale={locale} />;
   return (
-    <div className="activity-card" aria-hidden="true">
-      <div className="activity-top"><span className="pulse" /><small>{t.matchStatus}</small><b>02:14</b></div>
-      <div className="activity-score">
-        <div><i>AD</i><span>Adnan</span></div>
-        <strong>4 <small>:</small> 2</strong>
-        <div><i>MK</i><span>Marco</span></div>
+    <div className="dirham-card" aria-hidden="true">
+      <div className="dirham-head"><span>Д</span><small>{t.dirhamVisual.summary}</small></div>
+      <strong>2 480 000 ₽</strong>
+      <small>{t.dirhamVisual.turnover}</small>
+      <div className="dirham-stats">
+        <div><small>{t.dirhamVisual.payments}</small><b>184</b></div>
+        <div><small>{t.dirhamVisual.active}</small><b>62</b></div>
+        <div><small>{t.dirhamVisual.overdue}</small><b>3</b></div>
       </div>
-      <div className="activity-progress"><span /></div>
     </div>
   );
 }
@@ -506,7 +498,10 @@ export default function Home() {
               const meta = projectMeta[id];
               const project = t.projects[id];
               const projectTitle = meta.title[locale];
-              const storeLinks = id === "lariba" || id === "tooba" ? stores[id] : undefined;
+              const storeLinks =
+                id === "lariba" || id === "tooba" || id === "wecompete"
+                  ? stores[id]
+                  : undefined;
               return (
                 <article className={`project ${meta.className}`} key={id}>
                   <div className="project-info">
@@ -538,9 +533,11 @@ export default function Home() {
                         <a className="store-cta" href={storeLinks.appStore} target="_blank" rel="noreferrer" aria-label={`${t.download} — App Store`}>
                           <AppleIcon /><span><small>App Store</small><strong>{t.download}</strong></span>
                         </a>
-                        <a className="store-cta" href={storeLinks.googlePlay} target="_blank" rel="noreferrer" aria-label={`${t.download} — Google Play`}>
-                          <PlayIcon /><span><small>Google Play</small><strong>{t.download}</strong></span>
-                        </a>
+                        {"googlePlay" in storeLinks ? (
+                          <a className="store-cta" href={storeLinks.googlePlay} target="_blank" rel="noreferrer" aria-label={`${t.download} — Google Play`}>
+                            <PlayIcon /><span><small>Google Play</small><strong>{t.download}</strong></span>
+                          </a>
+                        ) : null}
                       </div>
                     ) : null}
                     <ProjectVisual id={id} locale={locale} />
