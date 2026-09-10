@@ -29,7 +29,7 @@ npm start
 Основные блоки:
 
 - Hero с акцентом на mobile-разработку
-- Проекты: ЦПУ (билайн), ЛяРиба, Dirham, Tooba, WeCompete
+- Проекты: ЦПУ (билайн), ЛяРиба, Dirham, Tooba, Govza, WeCompete
 - Развёрнутые кейсы ЛяРиба, Dirham и WeCompete: задача, роль, ключевые решения и архитектура
 - Опыт: билайн / VK / Tooba
 - Обо мне + блок про LLM / AI Agents / MCP

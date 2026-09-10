@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { GovzaCollage } from "./govza-collage";
 import { LaribaCollage } from "./lariba-collage";
 import { ToobaCollage } from "./tooba-collage";
 
@@ -137,6 +138,15 @@ const copy = {
         ],
         link: "Сайт",
       },
+      govza: {
+        subtitle: "Сервис городской курьерской доставки",
+        sections: [
+          { title: "О продукте", text: "Приложение для создания заказов, работы курьеров и отслеживания доставки на карте в реальном времени." },
+          { title: "Моя роль", text: "Разрабатывал Flutter-приложение в команде и верстал пользовательские сценарии по макетам Sketch и Figma." },
+          { title: "Интерфейс", text: "Реализовывал экраны заказов, статусов и карты, сохраняя точность макетов и единое поведение на iOS и Android." },
+        ],
+        link: "Сайт",
+      },
       wecompete: {
         subtitle: "Полный цикл турниров по единоборствам",
         sections: [
@@ -269,6 +279,15 @@ const copy = {
         ],
         link: "Website",
       },
+      govza: {
+        subtitle: "Urban courier delivery service",
+        sections: [
+          { title: "Product", text: "An app for creating orders, managing courier workflows, and tracking deliveries on a live map." },
+          { title: "My role", text: "Developed the Flutter app as part of a team and implemented user flows from Sketch and Figma designs." },
+          { title: "Interface", text: "Built order, status, and map screens with close design fidelity and consistent behavior across iOS and Android." },
+        ],
+        link: "Website",
+      },
       wecompete: {
         subtitle: "End-to-end combat sports tournaments",
         sections: [
@@ -322,6 +341,7 @@ const projectVisuals = {
   lariba: ["Flutter", "ValueNotifier", "GetIt", "go_router", "Dio"],
   dirham: ["NestJS", "Prisma", "PostgreSQL", "React", "Flutter", "Docker"],
   tooba: ["Flutter", "Android", "Kotlin"],
+  govza: ["Flutter", "Dart", "REST", "Maps", "Geolocation"],
   wecompete: ["Flutter", "Go", "React", "WebSocket", "Firebase"],
 } as const;
 
@@ -330,6 +350,7 @@ const projectMeta = {
   lariba: { title: { ru: "ЛяРиба", en: "Lariba" }, className: "project-lariba" },
   dirham: { title: { ru: "Dirham", en: "Dirham" }, className: "project-dirham" },
   tooba: { title: { ru: "Tooba", en: "Tooba" }, className: "project-tooba", href: "https://tooba.com/" },
+  govza: { title: { ru: "Govza", en: "Govza" }, className: "project-govza", href: "https://govza.app/" },
   wecompete: { title: { ru: "WeCompete", en: "WeCompete" }, className: "project-wecompete", href: "https://wecompete.ru/" },
 } as const;
 
@@ -360,6 +381,7 @@ function ProjectVisual({ id, locale }: { id: keyof typeof projectMeta; locale: L
   }
   if (id === "lariba") return <LaribaCollage locale={locale} />;
   if (id === "tooba") return <ToobaCollage locale={locale} />;
+  if (id === "govza") return <GovzaCollage locale={locale} />;
   if (id === "dirham") {
     return (
       <div className="dirham-card" aria-hidden="true">

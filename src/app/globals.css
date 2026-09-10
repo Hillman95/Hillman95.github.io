@@ -577,6 +577,75 @@ em {
   transform: rotate(-7deg) translateY(-8px);
 }
 
+.project-govza .project-visual {
+  display: block;
+  background: linear-gradient(155deg, #eef0ff 0%, #dfe4ff 100%);
+}
+
+.govza-collage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.govza-phone {
+  margin: 0;
+  position: absolute;
+  bottom: -42px;
+  width: min(54%, 184px);
+  filter: drop-shadow(0 20px 24px rgb(34 43 92 / 22%));
+  transition: transform 280ms ease;
+}
+
+.govza-phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.govza-phone-1 {
+  left: -4%;
+  transform: rotate(-8deg);
+  z-index: 1;
+}
+
+.govza-phone-2 {
+  left: 24%;
+  bottom: -18px;
+  width: min(58%, 198px);
+  z-index: 3;
+}
+
+.govza-phone-3 {
+  right: -5%;
+  transform: rotate(8deg);
+  z-index: 2;
+}
+
+.govza-collage:hover .govza-phone-1 {
+  transform: rotate(-10deg) translateY(-8px);
+}
+
+.govza-collage:hover .govza-phone-2 {
+  transform: translateY(-12px);
+}
+
+.govza-collage:hover .govza-phone-3 {
+  transform: rotate(10deg) translateY(-8px);
+}
+
+.govza-icon {
+  width: 54px;
+  height: 54px;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 5;
+  border-radius: 15px;
+  box-shadow: 0 12px 30px rgb(56 71 190 / 24%);
+}
+
 .store-icon {
   width: 20px;
   height: 20px;
@@ -1244,6 +1313,10 @@ em {
 
 .dark .project-cpu .project-visual {
   background: linear-gradient(160deg, #292440 0%, #173932 100%);
+}
+
+.dark .project-govza .project-visual {
+  background: linear-gradient(155deg, #202741 0%, #171d31 100%);
 }
 
 .dark .cpu-showcase-copy {
