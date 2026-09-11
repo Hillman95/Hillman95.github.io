@@ -6,30 +6,30 @@ const copy = {
   ru: {
     label: "Экраны приложения Competitor",
     alts: [
-      "Competitor — список турниров",
-      "Competitor — детали события",
+      "Competitor — список событий",
+      "Competitor — детали турнира и оплата",
       "Competitor — профиль спортсмена",
-      "Competitor — результат матча",
-      "Competitor — информация о турнире",
+      "Competitor — виджет на Home Screen",
+      "Competitor — страница в App Store",
     ],
   },
   en: {
     label: "Competitor app screens",
     alts: [
-      "Competitor — tournament list",
-      "Competitor — event details",
+      "Competitor — events list",
+      "Competitor — tournament details and payment",
       "Competitor — athlete profile",
-      "Competitor — match result",
-      "Competitor — tournament information",
+      "Competitor — Home Screen widget",
+      "Competitor — App Store listing",
     ],
   },
 } satisfies Record<Locale, { label: string; alts: string[] }>;
 
 const sources = [
-  "/projects/wecompete/ios-1.webp",
+  "/projects/wecompete/ios-4.webp",
   "/projects/wecompete/ios-2.webp",
   "/projects/wecompete/ios-3.webp",
-  "/projects/wecompete/ios-4.webp",
+  "/projects/wecompete/ios-1.webp",
   "/projects/wecompete/ios-5.webp",
 ] as const;
 
@@ -46,8 +46,8 @@ export function WecompeteCollage({ locale }: { locale: Locale }) {
           <Image
             src={src}
             alt={localized.alts[index]}
-            width={260}
-            height={564}
+            width={780}
+            height={1691}
             sizes="(max-width: 900px) 120px, 160px"
           />
         </figure>
